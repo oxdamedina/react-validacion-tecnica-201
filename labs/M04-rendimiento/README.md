@@ -1,5 +1,8 @@
 # M04 — Rendimiento
 
+> El recorrido del curso está en la [home, por jornadas](../../README.md). Esta carpeta queda fuera de esa guía.
+
+
 [← Página anterior](../M03-apis-y-arquitectura/02-estructura.md) · [Siguiente página →](01-que-mirar.md)
 
 > [!NOTE]
@@ -21,6 +24,6 @@ La bandeja de seis fichas no está lenta. El módulo no existe para acelerarla. 
 
 ## Demostración guiada
 
-Punto de partida: el filtro responde y marcar cambia una ficha. La página siguiente parte el recorrido en dos momentos. [M04-05](../M04-hooks/M04-05-usememo.md) quita `texto` de las dependencias del filtro y las fichas dejan de moverse. Más tarde, con la lista ya en JSON, `console.count` dentro de `Tarjeta` sube al teclear hasta que `marcar` y el contexto dejan de nacer en cada pintado. El guion está en [Qué mirar](01-que-mirar.md).
+Punto de partida: una bandeja que filtra y marca. El `fetch` puede estar o no. [M04-01](M04-01-medir.md) cuenta ejecuciones de `Tarjeta` al teclear y lee una pasada de Lighthouse, sin cambiar el comportamiento. [M04-02](M04-02-optimizar.md) estabiliza `marcar`, enseña un `useMemo` al que le falta `texto`, y quita el contador. El guion está en [Qué mirar](01-que-mirar.md).
 
 → Sigue en **[Qué mirar](01-que-mirar.md)**.

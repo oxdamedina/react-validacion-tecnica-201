@@ -1,5 +1,8 @@
 # M03 — APIs y arquitectura
 
+> El recorrido del curso está en la [home, por jornadas](../../README.md). Esta carpeta queda fuera de esa guía.
+
+
 [← Página anterior](../M02-estado-y-hooks/03-efecto.md) · [Siguiente página →](01-peticion.md)
 
 > [!NOTE]
@@ -22,8 +25,9 @@ Hasta ahora la lista vive en el paquete. En una entrega real llega por HTTP. La 
 
 ## Demostración guiada
 
-Punto de partida: el final del módulo de estado. Buscador, pastilla, pestaña «Pendientes: 3», lista en `bandeja/src/datos.ts`. `public/entregables.json` ya está y la app no lo pide.
+Cada página se cierra con su laboratorio. El laboratorio trae el archivo de partida: si la bandeja del alumno es otra, se pega ese archivo y se hace solo el paso nuevo.
 
-Los laboratorios no siguen el orden de estas dos páginas. Primero se saca la lista de `App` ([estructura](02-estructura.md), carpeta `M04-hooks`, desde M04-03). Después el hook deja `datos.ts` y pide el JSON ([petición](01-peticion.md), carpeta `M05-datos`, M05-01 y M05-02). El guion de cada gesto está en esas páginas.
+1. [La petición](01-peticion.md) y [M03-01](M03-01-peticion.md). De `datos.ts` a `/entregables.json`. Carga, error y filtro vacío son tres frases.
+2. [Estructura](02-estructura.md) y [M03-02](M03-02-estructura.md). La petición sale de `App` y entra en `useEntregables`. `App` se queda el filtro.
 
 → Sigue en **[La petición y los tres finales](01-peticion.md)**.

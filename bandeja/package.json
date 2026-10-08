@@ -6,7 +6,8 @@
     "dev": "vite --host 0.0.0.0 --port 5173 --strictPort",
     "build": "tsc -p tsconfig.app.json --noEmit && vite build",
     "preview": "vite preview --host 0.0.0.0 --port 5173 --strictPort",
-    "test:e2e": "start-server-and-test dev http://127.0.0.1:5173 \"cypress run\""
+    "test:e2e": "start-server-and-test dev http://127.0.0.1:5173 \"cypress run --e2e\"",
+    "test:component": "cypress run --component"
   },
   "dependencies": {
     "react": "^19.1.0",

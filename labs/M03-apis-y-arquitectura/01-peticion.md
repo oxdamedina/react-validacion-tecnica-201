@@ -30,36 +30,16 @@ El estado inicial de la lista, cuando la fuente es la red, es `[]`. Quien la lle
 
 ## Demostración guiada
 
-Punto de partida: [M04-07](../M04-hooks/M04-07-hook-propio.md) ya dejó `bandeja/src/hooks/useEntregables.ts`. El reductor empieza con el array de `datos.ts`. La pestaña dice «Pendientes: 3». El buscador y las seis fichas funcionan. `public/entregables.json` ya está en el repo, con los mismos seis, y la página todavía no lo pide.
+Punto de partida: el `App.tsx` del laboratorio [M03-01](M03-01-peticion.md). Buscador, `marcar`, pestaña «Pendientes: 3», lista importada de `datos.ts`. Si el archivo del alumno no es ese, se pega el bloque del laboratorio y se sigue. `public/entregables.json` ya está.
 
-Si ese hook no existe, esta demostración espera. Crearlo es la página de [estructura](02-estructura.md), aunque en la guía venga después.
+1. En el navegador, `http://localhost:5173/entregables.json` muestra los seis objetos. Network, en la app, no tiene esa petición.
+2. Se crea `bandeja/src/api/entregables.ts`. El JSON se lee como `unknown`. `"listo"` no pasa el guarda. La página no cambia: nadie llama a la función.
+3. `items` pasa a empezar en `[]`. Un efecto con `[]` llama a `cargarEntregables`. Al recargar, Network muestra una petición y luego las seis fichas. Teclear no dispara otra.
+4. `"estado": "listo"` en E-104 rechaza la lista. Se restaura `"rechazado"`.
+5. La URL `"/no-esta.json"` muestra «No se pudo cargar la bandeja.» con `role="alert"`. Con la URL buena, `zzzz` muestra «Ningún entregable coincide.» y ese aviso no está.
 
-### 1 — El archivo que ya está y nadie pide
-
-Con `npm run dev` en marcha, en el navegador se abre `http://localhost:5173/entregables.json`. Se ven los seis objetos. En la app, la pestaña Network no tiene esa petición: la lista sigue saliendo del import.
-
-### 2 — El guarda
-
-Se crea `bandeja/src/api/entregables.ts` con `esEstado`, `esEntregable` y `cargarEntregables`. `fetch("/entregables.json")`. Si `respuesta.ok` es falso, `throw new Error`. El JSON se lee como `unknown`. Si no es un array o algún elemento falla el guarda, `throw new Error("El JSON no es una lista de entregables")`. No hay `any`. La página no cambia: nadie llama a la función.
-
-### 3 — El hook la llama una vez
-
-En `useEntregables.ts` el estado inicial del reductor pasa a `[]`. Una acción `"cargar"` sustituye la lista. Un `useEffect` con `[]` llama a `cargarEntregables` y hace `dispatch` si la bandera `vivo` sigue en pie. Se quita el import de `datos.ts`.
-
-Network, al recargar: una petición a `entregables.json` y después las seis fichas. Escribir en «Buscar» no dispara otra. La pestaña vuelve a «Pendientes: 3» cuando llega la respuesta.
-
-### 4 — Un estado que el tipo no admite
-
-En el JSON, E-104 pasa a `"estado": "listo"`. Se recarga. El guarda rechaza la lista. La consola muestra el error. No aparecen las seis fichas a medias. Se restaura `"rechazado"` y, al recargar, vuelven.
-
-### 5 — Error, carga y vacío
-
-En el hook, `cargando` empieza en `true` y `error` en `""`. El `catch` hace `setError("No se pudo cargar la bandeja.")`. El `finally` apaga `cargando`. En `App`, tres ramas: cargando muestra «Cargando entregables…» sin fichas; error muestra un aviso con `role="alert"`; si no, la lista y el filtro.
-
-La URL del `fetch` se cambia a `"/no-esta.json"`. Al recargar, el aviso y ninguna ficha. Se restituye `"/entregables.json"`. Con la URL buena, `zzzz` en la caja deja «Ningún entregable coincide.» y el aviso de error no está.
-
-Dónde queda: la lista nace del JSON. `datos.ts` puede seguir en el proyecto. El hook ya no lo importa.
+Dónde queda: la lista nace del JSON y la petición sigue dentro de `App`. Sacarla es la página siguiente.
 
 ## Práctica
 
-[M05-01 — La petición](../M05-datos/M05-01-fetch.md) y [M05-02 — Tres finales](../M05-datos/M05-02-finales.md).
+[M03-01 — La petición](M03-01-peticion.md). El laboratorio trae el `App.tsx` de partida. No hace falta haber terminado otra carpeta.

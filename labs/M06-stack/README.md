@@ -1,5 +1,8 @@
 # M06 — El stack
 
+> El recorrido del curso está en la [home, por jornadas](../../README.md). Esta carpeta queda fuera de esa guía.
+
+
 [← Página anterior](../../README.md) · [Siguiente página →](M06-01-stack.md)
 
 > [!NOTE]

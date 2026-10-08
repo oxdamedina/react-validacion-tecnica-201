@@ -1,6 +1,9 @@
 # Práctica — Datos, pintado y un caso
 
-> Esta carpeta no es el módulo 5 entero. El módulo 5 es [el recorrido](../M05-testing-y-validacion/README.md). Aquí están la [petición](../M03-apis-y-arquitectura/01-peticion.md) (M05-01 y M05-02), el cierre de [rendimiento](../M04-rendimiento/01-que-mirar.md) (M05-03 y M05-04) y el caso (M05-05). Se abren después de [M04-07](../M04-hooks/M04-07-hook-propio.md).
+> El recorrido del curso está en la [home, por jornadas](../../README.md). Esta carpeta queda fuera de esa guía.
+
+
+> Esta carpeta no es el recorrido. La petición está en [M03-01](../M03-apis-y-arquitectura/M03-01-peticion.md). Medir y optimizar, en [M04](../M04-rendimiento/README.md). El caso de Cypress, en [M05-01](../M05-testing-y-validacion/M05-01-caso.md). Lo de aquí queda como material aparte.
 
 [← Página anterior](../M03-apis-y-arquitectura/01-peticion.md) · [Siguiente página →](M05-01-fetch.md)
 

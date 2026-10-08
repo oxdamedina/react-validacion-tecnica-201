@@ -1,5 +1,8 @@
 # Práctica — Estado y flujo
 
+> El recorrido del curso está en la [home, por jornadas](../../README.md). Esta carpeta queda fuera de esa guía.
+
+
 > Práctica del módulo 2: [estado](../M02-estado-y-hooks/01-estado.md), [flujo](../M02-estado-y-hooks/02-flujo.md) y [efecto](../M02-estado-y-hooks/03-efecto.md). La carpeta se llama M03. El módulo 3 del curso es [APIs](../M03-apis-y-arquitectura/README.md).
 
 [← Página anterior](../M02-estado-y-hooks/01-estado.md) · [Siguiente página →](M03-01-usestate.md)

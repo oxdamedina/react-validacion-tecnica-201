@@ -1,5 +1,8 @@
 # M02 — Estado, hooks y flujo de datos
 
+> El recorrido del curso está en la [home, por jornadas](../../README.md). Esta carpeta queda fuera de esa guía.
+
+
 [← Página anterior](../M01-fundamentos/05-children.md) · [Siguiente página →](01-estado.md)
 
 > [!NOTE]

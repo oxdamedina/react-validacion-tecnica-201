@@ -1,6 +1,6 @@
 # M03-05 — Las reglas
 
-[← Página anterior](M03-04-useeffect.md) · [Siguiente página →](../M04-hooks/M04-01-children.md)
+[← Página anterior](M03-04-useeffect.md) · [Siguiente página →](../M03-apis-y-arquitectura/README.md)
 
 > Práctica de [useEffect y las reglas](../M02-estado-y-hooks/03-efecto.md).
 
@@ -8,9 +8,9 @@
 
 Provocar el fallo de un hook condicional, leerlo y dejar los hooks otra vez al principio de `App`.
 
-### Prerrequisitos
+### Código de partida
 
-- [M03-04](M03-04-useeffect.md): `useState` y `useEffect` están antes del `return`. La pestaña dice «Pendientes: 3» al recargar.
+Hace falta el efecto del laboratorio anterior, no la cadena entera. Si la pestaña no dice «Pendientes: 3» al recargar, pega el código de partida de [M03-04](M03-04-useeffect.md) y añade el efecto de su paso 1. `useState` y `useEffect` quedan antes del `return`.
 
 ### En qué consiste
 

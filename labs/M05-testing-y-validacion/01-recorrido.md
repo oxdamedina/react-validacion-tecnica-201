@@ -32,26 +32,15 @@ El checklist, para esta bandeja y para otra entrega:
 
 ## Demostración guiada
 
-Punto de partida: la bandeja pide `/entregables.json`. El buscador tiene `id="filtro"` y su etiqueta es «Buscar». El botón de una ficha pendiente contiene «Anotar». `npm run dev` no puede estar usando el 5173: el script de Cypress arranca el suyo. Se para con Ctrl+C.
+Punto de partida: caja `#filtro` y seis fichas. Si no están, se pega el `App.tsx` de [M05-01](M05-01-caso.md). Se para `npm run dev`: Cypress arranca el suyo.
 
-El caso que ya viene visita `/` y busca el título. No mira el filtro.
+1. En `bandeja/cypress/e2e/bandeja.cy.js`, después del caso del título, un caso escribe `Este` en `#filtro`, ve «Inventario de componentes» y no ve «Informe de accesibilidad». `npm run test:e2e` en `bandeja/`. Pasan los dos.
+2. El texto pasa a `zzzz`. El caso falla buscando el inventario. Cypress mira la página, no `useState`. Se restituye `Este`.
+3. Se quita `.toLowerCase()` de `texto` en el filtro. El caso de `Este` se pone rojo. Se devuelve `toLowerCase()` y se deja el `it` en el archivo. Vuelve a pasar.
+4. Con `dev` otra vez: `zzzz` muestra «Ningún entregable coincide.». Pulsar la etiqueta «Buscar» enfoca `#filtro`. Marcar E-101 deja la pastilla en `revisado`.
 
-### 1 — El filtro, visto desde fuera
-
-En `bandeja/cypress/e2e/bandeja.cy.js`, dentro del `describe`, después del caso del título, un caso escribe `Este` en `#filtro`, ve «Inventario de componentes» y no ve «Informe de accesibilidad». En `bandeja/`, `npm run test:e2e`. Pasan el del título y este.
-
-Se cambia el texto escrito a `zzzz`. El caso falla buscando «Inventario de componentes»: el filtro no lo pinta. Cypress no mira `useState`. Mira el texto de la página. Se restituye `Este` y el caso vuelve a pasar.
-
-### 2 — La pastilla, no el botón
-
-Otro caso abre el artículo que contiene «Informe de accesibilidad», pulsa el botón que contiene «Anotar» y lee `revisado` en `.estado`. Al cargar, E-101 está pendiente y el botón dice «Anotar E-101». Tras el clic, la pastilla es `revisado`. Si el caso solo comprueba que el botón existe, pasa aunque la pastilla no cambie. Este caso lee la pastilla.
-
-### 3 — El checklist, en la misma bandeja
-
-Con `dev` otra vez en el 5173: la URL del fetch en `"/no-esta.json"` enseña «No se pudo cargar la bandeja.» Se restituye la URL buena. `zzzz` enseña «Ningún entregable coincide.» sin `role="alert"`. En Network, teclear en «Buscar» no repite `entregables.json`. Pulsar la etiqueta «Buscar» lleva el foco a `#filtro`.
-
-Dónde queda: los casos se quedan en el archivo. Borrar el caso al corregir un fallo deja la entrega como al principio.
+Dónde queda: el caso sigue en el archivo. Borrarlo al corregir el fallo deja la entrega como al principio.
 
 ## Práctica
 
-[M05-05 — Un caso](../M05-datos/M05-05-caso.md).
+[M05-01 — Un caso](M05-01-caso.md) y [M05-02 — Corregir lo que el caso ve](M05-02-correccion.md). El caso mira el texto de la página. Sirve con la lista en `datos.ts` o en el JSON.

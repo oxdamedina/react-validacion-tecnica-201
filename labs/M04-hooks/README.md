@@ -1,6 +1,9 @@
 # Práctica — Hooks sueltos
 
-> Esta carpeta no es el módulo 4. El módulo 4 es [rendimiento](../M04-rendimiento/README.md). Aquí se mezclan laboratorios de tres páginas: [children](../M01-fundamentos/05-children.md) (M04-01 y M04-02), [estructura](../M03-apis-y-arquitectura/02-estructura.md) (M04-03, M04-04, M04-06, M04-07) y [qué mirar](../M04-rendimiento/01-que-mirar.md) (M04-05). Se abren en ese orden, después de [M03-05](../M03-estado-y-flujo/M03-05-reglas.md).
+> El recorrido del curso está en la [home, por jornadas](../../README.md). Esta carpeta queda fuera de esa guía.
+
+
+> Esta carpeta no es el recorrido. El módulo 4 es [rendimiento](../M04-rendimiento/README.md), y sus laboratorios están en esa carpeta. La petición y la estructura están en [M03](../M03-apis-y-arquitectura/README.md). Lo de aquí queda como material aparte: no hace falta abrirlo para seguir el curso.
 
 [← Página anterior](../M01-fundamentos/05-children.md) · [Siguiente página →](M04-01-children.md)
 

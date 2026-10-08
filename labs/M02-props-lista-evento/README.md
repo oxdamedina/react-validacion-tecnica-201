@@ -1,5 +1,8 @@
 # Práctica — Props, lista y evento
 
+> El recorrido del curso está en la [home, por jornadas](../../README.md). Esta carpeta queda fuera de esa guía.
+
+
 > Práctica de [props](../M01-fundamentos/03-props.md) y [eventos](../M01-fundamentos/04-eventos.md). Sigue siendo el módulo 1. El módulo 2 del curso es [estado](../M02-estado-y-hooks/README.md), y su práctica está en `labs/M03-estado-y-flujo/`.
 
 `Tarjeta` es `bandeja/src/componentes/Tarjeta.tsx`. Lo crea [M01-03](../M01-tsx-y-componente/M01-03-componente.md). Al empezar esta práctica el objeto `entrega` está escrito dentro de ese archivo y `App` solo pone `<Tarjeta />`.

@@ -8,9 +8,88 @@
 
 Llevar el número de pendientes al título de la pestaña, y ver qué pasa si el array de dependencias miente.
 
-### Prerrequisitos
+### Código de partida
 
-- [M03-03](M03-03-flujo.md): `marcar` cambia `estado` en `items`. Hay tres pendientes al recargar: E-101, E-103 y E-105.
+Este laboratorio no continúa el archivo que tengas a medias. `bandeja/src/datos.ts` y `bandeja/src/modelo.ts` se quedan como están en el repo. Sustituye `bandeja/src/App.tsx` y `bandeja/src/componentes/Tarjeta.tsx` por estos dos archivos. Si ya coinciden, no cambies nada y pasa al paso 1.
+
+`App.tsx` tiene buscador, filtro y `marcar`. No tiene `useEffect`. La pestaña del navegador dice «Bandeja de entregables».
+
+```tsx
+import { useState } from "react"
+import { entregables } from "./datos"
+import type { Entregable } from "./modelo"
+import Tarjeta from "./componentes/Tarjeta"
+
+export default function App() {
+  const [texto, setTexto] = useState("")
+  const [items, setItems] = useState<Entregable[]>(entregables)
+
+  const visibles = items.filter((item) => {
+    const blob = `${item.titulo} ${item.proveedor} ${item.id}`.toLowerCase()
+    return blob.includes(texto.toLowerCase())
+  })
+
+  function marcar(id: string): void {
+    setItems((lista) =>
+      lista.map((item) =>
+        item.id === id ? { ...item, estado: "revisado" } : item,
+      ),
+    )
+  }
+
+  return (
+    <main>
+      <h1>Bandeja de entregables</h1>
+      <label htmlFor="filtro">Buscar</label>
+      <input
+        id="filtro"
+        value={texto}
+        onChange={(evento) => setTexto(evento.target.value)}
+      />
+      {visibles.length === 0 ? <p>Ningún entregable coincide.</p> : null}
+      <ul className="lista">
+        {visibles.map((item) => (
+          <li key={item.id}>
+            <Tarjeta item={item} alMarcar={marcar} />
+          </li>
+        ))}
+      </ul>
+    </main>
+  )
+}
+```
+
+```tsx
+import type { Entregable } from "../modelo"
+
+interface TarjetaProps {
+  item: Entregable
+  textoBoton?: string
+  alMarcar: (id: string) => void
+}
+
+export default function Tarjeta({
+  item,
+  textoBoton = "Anotar",
+  alMarcar,
+}: TarjetaProps) {
+  return (
+    <article>
+      <p>{item.titulo}</p>
+      <p>
+        {item.id} · {item.proveedor}
+      </p>
+      <p className={`estado ${item.estado}`}>{item.estado}</p>
+      {item.estado === "pendiente" ? <p>Falta revisión</p> : null}
+      <button type="button" onClick={() => alMarcar(item.id)}>
+        {item.estado === "revisado" ? "Hecho" : textoBoton} {item.id}
+      </button>
+    </article>
+  )
+}
+```
+
+Al guardar, `Este` deja «Inventario de componentes». «Anotar E-101» pasa esa pastilla a `revisado`. La pestaña sigue sin número.
 
 ### En qué consiste
 
@@ -18,7 +97,7 @@ Un efecto. El experimento vacía las dependencias, filtra y marca, y anota qué 
 
 ### 1 — El efecto
 
-**Dónde:** `App.tsx`, junto al cálculo de `visibles`. El import de React pasa a incluir `useEffect`.
+**Dónde:** `App.tsx`, justo después de `visibles`. El import pasa a incluir `useEffect`.
 
 **Qué haces:**
 
@@ -29,7 +108,9 @@ Un efecto. El experimento vacía las dependencias, filtra y marca, y anota qué 
 
 ```tsx
 import { useEffect, useState } from "react"
+```
 
+```tsx
 const pendientes = items.filter((item) => item.estado === "pendiente").length
 
 useEffect(() => {
@@ -89,3 +170,4 @@ Al marcar, la consola escribe `limpieza` y enseguida el efecto vuelve a poner «
 | `useEffect is not defined` | El import no lo nombra | `import { useEffect, useState } from "react"` |
 | El título no baja al marcar | Dependencias `[]`, o cuentas otra lista | `[pendientes]` y `item.estado === "pendiente"` sobre `items` |
 | Miras el h1 y no ves el número | El título es el de la pestaña | Lee la pestaña del navegador |
+| El archivo no tiene buscador | No partiste del código de arriba | Sustituye `App.tsx` por el bloque de «Código de partida» |

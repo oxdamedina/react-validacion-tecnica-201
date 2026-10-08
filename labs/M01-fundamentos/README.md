@@ -1,5 +1,8 @@
 # M01 — Fundamentos
 
+> El recorrido del curso está en la [home, por jornadas](../../README.md). Esta carpeta queda fuera de esa guía.
+
+
 [← Página anterior](../../README.md) · [Siguiente página →](01-entorno.md)
 
 > [!NOTE]

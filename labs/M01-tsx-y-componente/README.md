@@ -1,5 +1,8 @@
 # Práctica — TSX y el componente
 
+> El recorrido del curso está en la [home, por jornadas](../../README.md). Esta carpeta queda fuera de esa guía.
+
+
 > Práctica de [TSX](../M01-fundamentos/02-tsx.md), en el módulo 1. El número M01-0N es el del laboratorio. La guía no pasa por esta carpeta: se abre al terminar de ver la página.
 
 [← Página anterior](../M01-fundamentos/02-tsx.md) · [Siguiente página →](M01-01-entorno.md)
