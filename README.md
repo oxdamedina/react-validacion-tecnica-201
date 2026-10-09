@@ -125,4 +125,8 @@ Objetivo: saber qué hace cada herramienta, cómo se usa y para qué sirve el da
 
 Sin demo ni laboratorio. El cierre es saber qué contarle al autor.
 
+## Flota — contraste de render
+
+Dos apps con la misma tabla de mil autobuses. La A actualiza el estado en la raíz y repinta el árbol. La B avisa solo a la celda del pulso. Índice: [flota](flota/README.md).
+
 → Empieza por **[Jornada 1 — Fundamentos de React](labs/J01-fundamentos/README.md)**.
